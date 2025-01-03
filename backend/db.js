@@ -1,6 +1,8 @@
+require('dotenv').config();
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb+srv://kmanish1773:y7S4eWsO42QvWskn@cluster0.apdta.mongodb.net/")
+const url = process.env.MONGO_URL;
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const userSchema= new mongoose.Schema({
     username:{
